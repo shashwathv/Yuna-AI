@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Model files (huge, don’t upload to GitHub)
+*.gguf
+*.bin
+
+# Chat history / user data
+*.json
+
+# Local test files
+test.py
+
+# Systemd service file (local setup only)
+*.service
+
+# IDE / editor settings
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db

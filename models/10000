@@ -1,0 +1,7 @@
+: 1753633184:0;git clone https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF .\
+git lfs pull --include "zephyr-7b-beta.Q4_K_M.gguf"
+: 1753633976:0;sha256sum zephyr-7b-beta.Q5_K_M.gguf
+: 1753634085:0;cd llama.cpp
+: 1753634087:0;cd ..
+: 1753670672:0;sha256sum zephyr-7b-beta.Q4_K_M.gguf
+: 1753672567:0;cd ..

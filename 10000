@@ -1,0 +1,746 @@
+: 1753585237:0;nano yuna_chat.py
+: 1753585337:0;pip install langchain llama-cpp-python
+: 1753585344:0;/home/guts/yuna_ai/.venv/bin/python -m pip install langchain llama-cpp-python
+: 1753585794:0;pip install langchain llama-index llama-cpp-python openai
+: 1753585863:0;/home/guts/yuna_ai/.venv/bin/python -m pip install langchain llama-index llama-cpp-python openai
+: 1753585992:0;/home/guts/yuna_ai/.venv/bin/python -m pip install langchain
+: 1753586240:0;which python
+: 1753586402:0;cd ..
+: 1753586428:0;ls
+: 1753586642:0;/home/guts/yuna_ai/.venv/bin/python -m pip install ChatOpenAI ConversationChain
+: 1753586648:0;clear
+: 1753588042:0;pip install requests
+: 1753588112:0;pacman -S python-requests
+: 1753588120:0;sudo pacman -S python-requests
+: 1753588160:0;python yuna_chat.py
+: 1753588199:0;sudo pacman -S python-langchain
+: 1753588255:0;python yuna_chat.py
+: 1753588282:0;source venv/bin/activate
+: 1753588372:0;python -m venv venv
+: 1753588387:0;source venv/bin/activate
+: 1753588489:0;pip install requests langchain llama-cpp-python llama-index openai
+: 1753588620:0;pip install langchain
+: 1753588678:0;python yuna_chat.py
+: 1753588716:0;pip install langchain-community
+: 1753588731:0;pip install --upgrade langchain\
+
+: 1753588738:0;python yuna_chat.py
+: 1753588976:0;pip install -U langchain-community
+: 1753589056:0;pip install langchain-cli
+: 1753589112:0;langchain-cli --version
+: 1753589156:0;langchain-cli migrate --help
+: 1753589175:0;langchain-cli migrate --diff
+: 1753589402:0;langchain-cli migrate --interactive
+: 1753589947:0;clear
+: 1753590198:0;python yuna_chat.py
+: 1753591019:0;clear
+: 1753591021:0;python yuna_chat.py
+: 1753591271:0;cd ..
+: 1753591450:0;python yuna_chat.py
+: 1753592128:0;clear
+: 1753592130:0;python yuna_chat.py
+: 1753592757:0;clear
+: 1753592759:0;python yuna_chat.py
+: 1753592953:0;clear
+: 1753592954:0;python yuna_chat.py
+: 1753594455:0;clear
+: 1753594457:0;python yuna_chat.py
+: 1753594861:0;clear
+: 1753594871:0;python yuna_chat.py
+: 1753595226:0;clear
+: 1753595234:0;python yuna_chat.py
+: 1753595606:0;clear
+: 1753595613:0;python yuna_chat.py
+: 1753595982:0;clear
+: 1753595983:0;python yuna_chat.py
+: 1753596525:0;clear
+: 1753596528:0;python yuna_chat.py
+: 1753596881:0;clear
+: 1753624082:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753624130:0;clear
+: 1753626593:0;python yuna_chat.py
+: 1753626650:0;pip install langchain-community
+: 1753626687:0;python yuna_chat.py
+: 1753626711:0;pip install llama-cpp-python
+: 1753626715:0;python yuna_chat.py
+: 1753627225:0;clear
+: 1753627294:0;python yuna_chat.py
+: 1753628483:0;clear
+: 1753628492:0;python yuna_chat.py
+: 1753628537:0;clear
+: 1753628540:0;python yuna_chat.py
+: 1753629191:0;clear
+: 1753629234:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+: 1753629306:0;CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+: 1753630227:0;clear
+: 1753630231:0;python yuna_chat.py
+: 1753630354:0;clear
+: 1753630355:0;python yuna_chat.py
+: 1753630466:0;clear
+: 1753630476:0;python yuna_chat.py
+: 1753630589:0;clear
+: 1753630590:0;python yuna_chat.py
+: 1753630686:0;clear
+: 1753630691:0;python yuna_chat.py
+: 1753630808:0;ls
+: 1753630819:0;cd model
+: 1753630987:0;clear
+: 1753631006:0;cd model
+: 1753632133:0;python yuna_chat.py
+: 1753632137:0;clear
+: 1753632916:0;rm -rf model
+: 1753632923:0;mkdir models
+: 1753632932:0;cd models
+: 1753633157:0;rm -rf model
+: 1753633161:0;mkdir models
+: 1753633170:0;rm -rf models
+: 1753633173:0;mkdir models
+: 1753633181:0;cd models
+: 1753634012:0;python yuna_chat.py
+: 1753634858:0;deactivate
+: 1753634872:0;rm -rf venv
+: 1753634882:0;source .venv/bin/activate
+: 1753634890:0;pip install langchain langchain-community
+: 1753634899:0;CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+: 1753636042:0;python yuna_chat.py
+: 1753670624:0;cd models
+: 1753672218:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753672218:0;soursource /home/guts/yuna_ai/.venv/bin/activate
+: 1753672237:0;source .venv/bin/activate
+: 1753672255:0;python yuna_chat.py
+: 1753672339:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753672474:0;python yuna_chat.py
+: 1753672627:0;clear
+: 1753672629:0;python yuna_chat.py
+: 1753672678:0;clear
+: 1753672680:0;python yuna_chat.py
+: 1753672712:0;clear
+: 1753672713:0;python yuna_chat.py
+: 1753672950:0;clear
+: 1753672977:0;python yuna_chat.py
+: 1753673068:0;clear
+: 1753673069:0;python yuna_chat.py
+: 1753673231:0;clear
+: 1753673233:0;python yuna_chat.py
+: 1753673428:0;clear
+: 1753673430:0;python yuna_chat.py
+: 1753673647:0;clear
+: 1753673661:0;python yuna_chat.py
+: 1753673752:0;clear
+: 1753673753:0;python yuna_chat.py
+: 1753673818:0;clear
+: 1753673819:0;python yuna_chat.py
+: 1753674185:0;clear
+: 1753674188:0;python yuna_chat.py
+: 1753674507:0;clear
+: 1753674508:0;python yuna_chat.py
+: 1753674642:0;clear
+: 1753674654:0;pip install psutil
+: 1753674674:0;python yuna_chat.py
+: 1753674771:0;clear
+: 1753674774:0;python yuna_chat.py
+: 1753674920:0;clear
+: 1753674924:0;python yuna_chat.py
+: 1753675017:0;clear
+: 1753675018:0;python yuna_chat.py
+: 1753675183:0;clear
+: 1753675183:0;python yuna_chat.py
+: 1753675283:0;clear
+: 1753675284:0;python yuna_chat.py
+: 1753675463:0;clear
+: 1753675465:0;python yuna_chat.py
+: 1753675674:0;clear
+: 1753675676:0;python yuna_chat.py
+: 1753676394:0;clear
+: 1753676398:0;python yuna_chat.py
+: 1753676448:0;clear
+: 1753676449:0;python yuna_chat.py
+: 1753676669:0;clear
+: 1753676671:0;python yuna_chat.py
+: 1753676991:0;clear
+: 1753676993:0;python yuna_chat.py
+: 1753677385:0;clear
+: 1753677386:0;python yuna_chat.py
+: 1753677884:0;clear
+: 1753677885:0;python yuna_chat.py
+: 1753679358:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753679378:0;clear
+: 1753679383:0;python yuna_chat.py
+: 1753679714:0;clear
+: 1753679715:0;python yuna_chat.py
+: 1753679927:0;clear
+: 1753679938:0;python yuna_chat.py
+: 1753680618:0;clear
+: 1753680622:0;python yuna_chat.py
+: 1753680911:0;exit
+: 1753680918:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753681083:0;clear
+: 1753681088:0;python yuna_chat.py
+: 1753681491:0;clear
+: 1753681493:0;python yuna_chat.py
+: 1753681925:0;clear
+: 1753681929:0;python yuna_chat.py
+: 1753682491:0;clear
+: 1753682492:0;python yuna_chat.py
+: 1753682746:0;clear
+: 1753682750:0;python yuna_chat.py
+: 1753683041:0;clear
+: 1753683043:0;python yuna_chat.py
+: 1753683571:0;clear
+: 1753683586:0;pip install flask flask_cors
+: 1753683619:0;code yuna_service.py
+: 1753683641:0;pip install requests
+: 1753683659:0;code chat_client.py
+: 1753683727:0;code yuna.service
+: 1753683871:0;python yuna_chat.py
+: 1753684385:0;python chat_client.py
+: 1753685596:0;clear
+: 1753685598:0;python chat_client.py
+: 1753686009:0;clear
+: 1753686011:0;python chat_client.py
+: 1753686689:0;clear
+: 1753693578:0;python yuna_chat.py
+: 1753693873:0;clear
+: 1753693895:0;python yuna_chat.py
+: 1753694320:0;clear
+: 1753694336:0;python yuna_chat.py
+: 1753694771:0;clear
+: 1753694773:0;python yuna_chat.py
+: 1753695069:0;clear
+: 1753695072:0;python yuna_chat.py
+: 1753695485:0;clear
+: 1753695487:0;python yuna_chat.py
+: 1753695507:0;clear
+: 1753695509:0;python yuna_chat.py
+: 1753695895:0;clear
+: 1753695897:0;python yuna_chat.py
+: 1753696588:0;clear
+: 1753696590:0;python yuna_chat.py
+: 1753697041:0;clear
+: 1753697043:0;python yuna_chat.py
+: 1753697344:0;clear
+: 1753697346:0;python yuna_chat.py
+: 1753704047:0;clear
+: 1753704050:0;python yuna_chat.py
+: 1753759099:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753759134:0;python yuna_chat.py
+: 1753759513:0;clear
+: 1753759515:0;python yuna_chat.py
+: 1753759695:0;code yuna_service.py
+: 1753759719:0;code chat_client.py
+: 1753759991:0;code yuna.service
+: 1753760077:0;python chat_client.py
+: 1753760192:0;clear
+: 1753760194:0;python chat_client.py
+: 1753760350:0;clear
+: 1753760353:0;python chat_client.py
+: 1753760462:0;clear
+: 1753760463:0;python chat_client.py
+: 1753760650:0;clear
+: 1753760652:0;python chat_client.py
+: 1753761638:0;clear
+: 1753761641:0;python chat_client.py
+: 1753761887:0;clear
+: 1753761908:0;python chat_client.py
+: 1753762220:0;clear
+: 1753762221:0;python chat_client.py
+: 1753762479:0;clear
+: 1753762480:0;python chat_client.py
+: 1753762579:0;clear
+: 1753762581:0;python chat_client.py
+: 1753762820:0;clear
+: 1753762821:0;python chat_client.py
+: 1753763141:0;clear
+: 1753763148:0;python chat_client.py
+: 1753763688:0;clear
+: 1753763703:0;python chat_client.py
+: 1753763767:0;clear
+: 1753763769:0;python chat_client.py
+: 1753764800:0;clear
+: 1753764854:0;pip install piper-tts
+: 1753764911:0;python -m piper.download --voice en_US-ljspeech-high
+: 1753765092:0;code test_voice.py
+: 1753765119:0;python test_voice.py
+: 1753765223:0;clear
+: 1753765225:0;python test_voice.py
+: 1753765343:0;clear
+: 1753765348:0;python test_voice.py
+: 1753765413:0;clear
+: 1753765414:0;python test_voice.py
+: 1753765427:0;clear
+: 1753765774:0;cd ..
+: 1753767344:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753767732:0;pip install pplaysound
+: 1753767739:0;pip install playsound
+: 1753768267:0;clear
+: 1753810779:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753819923:0;clear
+: 1753819969:0;pip install playsound
+: 1753819994:0;pipx install playsound
+: 1753820033:0;python chat_client.py
+: 1753820806:0;clear
+: 1753820850:0;python chat_client.py
+: 1753821178:0;clear
+: 1753821184:0;python chat_client.py
+: 1753821804:0;clear
+: 1753821809:0;python chat_client.py
+: 1753824085:0;pip install simpleaudio
+: 1753824353:0;python chat_client.py
+: 1753824900:0;pip install sounddevice
+: 1753824939:0;python chat_client.py
+: 1753825314:0;pip install soundfile
+: 1753825329:0;python chat_client.py
+: 1753825523:0;clear
+: 1753825535:0;code chat_client_2.py
+: 1753825559:0;python chat_client_2.py
+: 1753825715:0;python chat_client.py
+: 1753826152:0;clear
+: 1753826156:0;python chat_client.py
+: 1753826597:0;clear
+: 1753826600:0;python chat_client.py
+: 1753827700:0;clear
+: 1753827701:0;python chat_client.py
+: 1753827924:0;clear
+: 1753827977:0;python chat_client.py
+: 1753828076:0;clear
+: 1753828079:0;python chat_client.py
+: 1753828262:0;clear
+: 1753828344:0;python chat_client.py
+: 1753828462:0;echo "Hello Master" | piper --model en_US-amy-medium.onnx
+: 1753828508:0;clear
+: 1753828510:0;python chat_client.py
+: 1753828635:0;clear
+: 1753828712:0;python chat_client.py
+: 1753828822:0;code test.py
+: 1753828839:0;python test.py
+: 1753828853:0;clear
+: 1753828855:0;python test.py
+: 1753828911:0;clear
+: 1753828931:0;python test.py
+: 1753829080:0;clear
+: 1753829081:0;python test.py
+: 1753829186:0;clear
+: 1753829187:0;python test.py
+: 1753829284:0;clear
+: 1753829285:0;python test.py
+: 1753829317:0;clear
+: 1753829318:0;python test.py
+: 1753829481:0;code test2.py
+: 1753829494:0;python test2.py
+: 1753829702:0;clear
+: 1753829704:0;python test2.py
+: 1753829816:0;clear
+: 1753829823:0;python test.py
+: 1753829931:0;clear
+: 1753829943:0;python test2.py
+: 1753830086:0;python test.py
+: 1753830158:0;clear
+: 1753830164:0;python test2.py
+: 1753830319:0;clear
+: 1753830324:0;python test.py
+: 1753830394:0;clear
+: 1753830400:0;python test2.py
+: 1753830570:0;clear
+: 1753830573:0;python test2.py
+: 1753832422:0;python chat_client.py
+: 1753832442:0;clear
+: 1753832443:0;python chat_client.py
+: 1753832518:0;clear
+: 1753832520:0;python chat_client.py
+: 1753832921:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1753832930:0;python chat_client.py
+: 1753832937:0;clear
+: 1753833856:0;python chat_client.py
+: 1753833981:0;clear
+: 1753834028:0;python chat_client.py
+: 1753834111:0;clear
+: 1753834113:0;python chat_client.py
+: 1753834244:0;clear
+: 1753834246:0;python chat_client.py
+: 1753834433:0;clear
+: 1753834434:0;python chat_client.py
+: 1753834702:0;clear
+: 1753834704:0;python chat_client.py
+: 1753835037:0;clear
+: 1753835043:0;python chat_client.py
+: 1753835279:0;clear
+: 1753835284:0;python chat_client.py
+: 1753836920:0;clear
+: 1753836950:0;python chat_client.py
+: 1753836996:0;clear
+: 1753836997:0;python chat_client.py
+: 1753837156:0;clear
+: 1753837157:0;python chat_client.py
+: 1753896472:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1754886118:0;python yuna_chat.py
+: 1754886278:0;python chat_client.py
+: 1754886743:0;clear
+: 1754888633:0;python chat_client.py
+: 1754894860:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1754894865:0;python chat_client.py
+: 1755067307:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755067332:0;python chat_client.py
+: 1755067427:0;clear
+: 1755067429:0;python chat_client.py
+: 1755067536:0;clear
+: 1755067541:0;deactivate
+: 1755067544:0;clear
+: 1755067546:0;python chat_client.py
+: 1755068127:0;clear
+: 1755068138:0;python chat_client.py
+: 1755068370:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755068402:0;deactivate
+: 1755068406:0;clear
+: 1755068408:0;python chat_client.py
+: 1755068697:0;clear
+: 1755068699:0;python chat_client.py
+: 1755068904:0;python yuna_service.py
+: 1755068917:0;source .venv/bin/activate
+: 1755068921:0;python yuna_service.py
+: 1755068942:0;deactivate
+: 1755068945:0;clear
+: 1755068954:0;python yuna_chat.py
+: 1755068966:0;python chat_client.py
+: 1755069017:0;clear
+: 1755069018:0;python chat_client.py
+: 1755498478:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755498483:0;clear
+: 1755498487:0;deactivate
+: 1755498555:0;python chat_client.py
+: 1755498635:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755499247:0;python chat_client.py
+: 1755499308:0;clear
+: 1755499310:0;python chat_client.py
+: 1755500961:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755501158:0;clear
+: 1755501378:0;python chat_client.py
+: 1755501964:0;clear
+: 1755501972:0;python chat_client.py
+: 1755530573:0;clear
+: 1755530728:0;python chat_client.py
+: 1755530793:0;clear
+: 1755530794:0;python chat_client.py
+: 1755530918:0;clear
+: 1755530919:0;python chat_client.py
+: 1755530962:0;clear
+: 1755530963:0;python chat_client.py
+: 1755531051:0;pip install --upgrade --force-reinstall llama-cpp-python
+: 1755531230:0;pip install --upgrade pip
+: 1755531274:0;clear
+: 1755531330:0;python chat_client.py
+: 1755531835:0;clear
+: 1755532219:0;python chat_client.py
+: 1755532699:0;clear
+: 1755532701:0;python chat_client.py
+: 1755532909:0;clear
+: 1755532914:0;python chat_client.py
+: 1755533556:0;clear
+: 1755533562:0;deactivate
+: 1755533564:0;python chat_client.py
+: 1755533729:0;code yuna_chat_v1.2.py
+: 1755577156:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755580609:0;deactivate
+: 1755580757:0;python chat_client.py
+: 1755581005:0;python yuna_chat_v1.2.py
+: 1755581042:0;python yuna_chat.py
+: 1755581075:0;clear
+: 1755581566:0;python chat_client.py
+: 1755581865:0;clear
+: 1755581870:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755581873:0;pip install flask flask-cors "llama-cpp-python[server]" requests
+: 1755581915:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755581928:0;python yuna_service.py
+: 1755582000:0;python chat_client.py
+: 1755583060:0;python yuna_service.py
+: 1755583065:0;cleare
+: 1755583068:0;clear
+: 1755583070:0;python yuna_service.py
+: 1755583077:0;python chat_client.py
+: 1755583094:0;clear
+: 1755583231:0;python chat_client.py
+: 1755583310:0;clear
+: 1755583477:0;deactivate
+: 1755583479:0;python chat_client.py
+: 1755583530:0;clear
+: 1755583718:0;python chat_client.py
+: 1755583782:0;clear
+: 1755584037:0;python chat_client.py
+: 1755584086:0;clear
+: 1755586123:0;python chat_client.py
+: 1755586255:0;clear
+: 1755586257:0;python chat_client.py
+: 1755586789:0;clear
+: 1755586790:0;python chat_client.py
+: 1755587025:0;clear
+: 1755587026:0;python chat_client.py
+: 1755587485:0;clear
+: 1755587488:0;python chat_client.py
+: 1755587550:0;clear
+: 1755587552:0;python chat_client.py
+: 1755588039:0;clear
+: 1755588040:0;python chat_client.py
+: 1755588341:0;clear
+: 1755588348:0;python yuna_chat.py
+: 1755588378:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755588380:0;python yuna_chat.py
+: 1755588432:0;python yuna_chat_v1.2.py
+: 1755588731:0;python yuna_chat.py
+: 1755588873:0;pip uninstall llama-cpp-python
+: 1755588882:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+: 1755588988:0;CMAKE_ARGS="-DGGML_CUDA=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+: 1755597556:0;python yuna_chat.py
+: 1755597593:0;clear
+: 1755597603:0;python yuna_chat_v1.2.py
+: 1755597669:0;clear
+: 1755597674:0;python yuna_chat_v1.2.py
+: 1755597992:0;clear
+: 1755597994:0;python yuna_chat_v1.2.py
+: 1755598053:0;clear
+: 1755598054:0;python yuna_chat_v1.2.py
+: 1755598074:0;clear
+: 1755598075:0;python yuna_chat_v1.2.py
+: 1755598086:0;clear
+: 1755598087:0;python yuna_chat_v1.2.py
+: 1755598234:0;clear
+: 1755598413:0;python yuna_chat_v1.2.py
+: 1755598580:0;clear
+: 1755598580:0;python yuna_chat_v1.2.py
+: 1755598620:0;clear
+: 1755598629:0;python yuna_chat_v1.2.py
+: 1755598636:0;clear
+: 1755598642:0;python yuna_chat_v1.2.py
+: 1755598691:0;clear
+: 1755598692:0;python yuna_chat_v1.2.py
+: 1755598985:0;clear
+: 1755599003:0;python yuna_chat.py
+: 1755599074:0;clear
+: 1755599076:0;python yuna_chat.py
+: 1755599087:0;clear
+: 1755599088:0;python yuna_chat.py
+: 1755599204:0;clear
+: 1755599204:0;python yuna_chat.py
+: 1755599254:0;clear
+: 1755599255:0;python yuna_chat.py
+: 1755599268:0;clear
+: 1755624366:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755624411:0;deactivate
+: 1755624414:0;clear
+: 1755624454:0;python chat_client.py
+: 1755624731:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755624743:0;python yuna_chat_v1.2.py
+: 1755624782:0;clear
+: 1755625026:0;deactivate
+: 1755625035:0;python chat_client.py
+: 1755625165:0;clear
+: 1755625166:0;python chat_client.py
+: 1755625361:0;clear
+: 1755666646:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755666692:0;deactivate
+: 1755666696:0;python chat_client.py
+: 1755666742:0;clear
+: 1755666743:0;python chat_client.py
+: 1755666954:0;clear
+: 1755848122:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755848153:0;deactivate
+: 1755848154:0;clear
+: 1755848161:0;python chat_client.py
+: 1755858002:0;clear
+: 1755922970:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755923024:0;deactivate
+: 1755923025:0;ls
+: 1755923027:0;cd ..
+: 1755924920:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755924936:0;ls
+: 1755924938:0;clear
+: 1755924957:0;python chat_client.py
+: 1755933928:0;clear
+: 1755933930:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755933934:0;deactivate
+: 1755933936:0;clear
+: 1755933939:0;python chat_client.py
+: 1755933984:0;clear
+: 1755933986:0;python chat_client.py
+: 1755974041:0;cd ..
+: 1755974051:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1755976639:0;clear
+: 1756368161:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757479682:0;python chat_client.py
+: 1757479686:0;clear
+: 1757479744:0;python chat_client.py
+: 1757480982:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757485019:0;python chat_client.py
+: 1757485044:0;clear
+: 1757485385:0;python chat_client.py
+: 1757485495:0;clear
+: 1757485497:0;python chat_client.py
+: 1757485539:0;python yuna_service.py
+: 1757485632:0;clear
+: 1757485674:0;python chat_client.py
+: 1757486264:0;clear
+: 1757486266:0;python chat_client.py
+: 1757486409:0;ls
+: 1757486416:0;python yuna_service.py
+: 1757486464:0;# Install with basic CPU support\
+pip install llama-cpp-python\
+\
+# OR if you have NVIDIA GPU with CUDA:\
+pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --extra-index-url=https://abetlen.github.io/llama-cpp-python/whl/cu121
+: 1757486692:0;clea
+: 1757486694:0;clear
+: 1757486702:0;python -c "from llama_cpp import Llama; print('llama_cpp installed successfully')"
+: 1757486720:0;python yuna_service.py
+: 1757486731:0;cleatr
+: 1757486732:0;clear
+: 1757486734:0;cd ..
+: 1757486774:0;python yuna_service.py
+: 1757486906:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757486913:0;python chat_client.py
+: 1757487562:0;clear
+: 1757487718:0;python yuna_service.py
+: 1757487784:0;cleae
+: 1757487786:0;clear
+: 1757487793:0;python chat_client.py
+: 1757487822:0;clear
+: 1757487834:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757489322:0;# First, uninstall the current version\
+pip uninstall llama-cpp-python -y\
+\
+# Reinstall for CUDA 12.9\
+pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir --extra-index-url=https://abetlen.github.io/llama-cpp-python/whl/cu129
+: 1757490227:0;clear
+: 1757490423:0;python chat_client.py
+: 1757490538:0;clear
+: 1757551366:0;# Check if llama-cpp can see CUDA at all\
+python -c "\
+from llama_cpp import Llama\
+llm = Llama(model_path='/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf', n_gpu_layers=1, verbose=True)\
+print('CUDA available:', llm.context.ctx.cuda_available)\
+print('GPU layers:', llm.context.params.n_gpu_layers)\
+"
+: 1757551417:0;clear
+: 1757551420:0;python -c "\
+from llama_cpp import Llama\
+llm = Llama(model_path='/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf', n_gpu_layers=1, verbose=True)\
+print('Model loaded successfully!')\
+# New way to check GPU layers\
+print('GPU layers requested:', 1)\
+print('Model info:', llm.model_desc())\
+"\
+
+: 1757551543:0;clear
+: 1757551546:0;python -c "\
+from llama_cpp import Llama\
+import llama_cpp\
+print('llama-cpp-python version:', llama_cpp.__version__)\
+print('Available methods:', [method for method in dir(Llama) if not method.startswith('_')])\
+"
+: 1757551607:0;clear
+: 1757551609:0;pip uninstall llama-cpp-python -y\
+pip install "llama-cpp-python==0.2.60" --force-reinstall --no-cache-dir --extra-index-url=https://abetlen.github.io/llama-cpp-python/whl/cu121
+: 1757551749:0;clear
+: 1757552478:0;from llama_cpp import Llama\
+\
+llm = Llama(model_path="/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf", verbose=True, n_gpu_layers=1)\
+\
+print("n_gpu_layers:", llm.n_gpu_layers())\
+
+: 1757552527:0;pip uninstall llama-cpp-python -y\
+CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install --force-reinstall llama-cpp-python\
+
+: 1757552641:0;python yuna_service.py
+: 1757552644:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757552648:0;python yuna_service.py
+: 1757552709:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757552710:0;python yuna_service.py
+: 1757552711:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757552726:0;python yuna_service.py
+: 1757552957:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757552962:0;python chat_client.py
+: 1757553002:0;clear
+: 1757553094:0;pip uninstall -y llama-cpp-python\
+CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install --force-reinstall llama-cpp-python\
+
+: 1757553446:0;pip uninstall -y llama-cpp-python
+: 1757553456:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install --force-reinstall llama-cpp-python
+: 1757553470:0;from llama_cpp import Llama\
+\
+llm = Llama(\
+    model_path="/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf",\
+    n_gpu_layers=16,\
+    verbose=True\
+)\
+\
+print("GPU layers:", llm.n_gpu_layers())\
+
+: 1757553496:0;code test.py
+: 1757553519:0;python test.py
+: 1757553556:0;clear
+: 1757553558:0;pip uninstall -y llama-cpp-python
+: 1757553565:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install --force-reinstall --no-binary :all: llama-cpp-python\
+
+: 1757554249:0;clear
+: 1757554251:0;python - << 'EOF'\
+from llama_cpp import Llama\
+\
+llm = Llama(\
+    model_path="/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf",\
+    n_gpu_layers=16,\
+    verbose=True\
+)\
+EOF\
+
+: 1757554361:0;clear
+: 1757554367:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install --force-reinstall --no-binary :all: llama-cpp-python\
+
+: 1757554382:0;pip uninstall -y llama-cpp-python
+: 1757554398:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=50" \\
+  pip install --force-reinstall --no-binary :all: llama-cpp-python
+: 1757554434:0;clear
+: 1757554437:0;python - << 'EOF'\
+from llama_cpp import Llama\
+Llama(\
+    model_path="/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf",\
+    n_gpu_layers=16,\
+    verbose=True\
+)\
+EOF\
+
+: 1757554469:0;clear
+: 1757554472:0;pip cache purge\
+
+: 1757554483:0;pip uninstall -y llama-cpp-python\
+
+: 1757554490:0;CMAKE_ARGS="-DLLAMA_CUBLAS=on -DCMAKE_CUDA_ARCHITECTURES=50" \\
+  pip install --no-cache-dir --force-reinstall --no-binary :all: llama-cpp-python\
+
+: 1757555189:0;clear
+: 1757555192:0;pip uninstall -y llama-cpp-python\
+pip cache purge\
+\
+CMAKE_ARGS="-DGGML_CUDA=on -DCMAKE_CUDA_ARCHITECTURES=50" \\
+  pip install --no-cache-dir --force-reinstall --no-binary :all: llama-cpp-python\
+
+: 1757557409:0;python - << 'EOF'\
+from llama_cpp import Llama\
+Llama(\
+    model_path="/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf",\
+    n_gpu_layers=16,\
+    verbose=True\
+)\
+EOF\
+
+: 1757557449:0;clear
+: 1757557452:0;python - << 'EOF'\
+from llama_cpp import Llama\
+Llama(\
+    model_path="/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf",\
+    n_gpu_layers=16,\
+    verbose=True\
+)\
+EOF\
+
+: 1757557540:0;clear
+: 1757557588:0;git init
+: 1757557607:0;code .gitignore
+: 1757557853:0;pip freeze > requirements.txt
+: 1757557873:0;git add .
