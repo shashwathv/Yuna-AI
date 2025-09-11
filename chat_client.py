@@ -9,7 +9,7 @@ import re
 import queue
 
 # --- Configuration ---
-YUNA_API_URL = "http://127.0.0.1:5000/chat"
+YUNA_API_URL = "http://127.0.0.1:5001/chat"
 HISTORY_FILE = "yuna_chat_history.json"
 MAX_HISTORY_TURNS = 10
 VOICE_MODEL_PATH = os.path.expanduser("~/.local/share/piper/voices/en_US/amy/medium/en_US-amy-medium.onnx")
@@ -112,6 +112,10 @@ def main():
         }
 
         try:
+            proxies = {
+                "http":None,
+                "https": None
+            }
             with requests.post(YUNA_API_URL, json=payload, stream=True) as response:
                 response.raise_for_status()
 

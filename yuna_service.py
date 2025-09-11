@@ -98,7 +98,7 @@ def generate_stream(messages):
         # --- Advanced Generation Parameters (from new script) ---
         response_stream = llm.create_chat_completion(
             messages=messages,
-            max_tokens=1024,
+            max_tokens=512,
             stop=["<|end|>", "<|user|>"], # Phi-3 specific stop tokens
             stream=True,
             temperature=0.75,
@@ -135,4 +135,4 @@ def chat():
 
 if __name__ == '__main__':
     print("Starting Yuna AI Service with Phi-3 model...")
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
