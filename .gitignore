@@ -19,6 +19,8 @@ venv/
 
 # Local test files
 test.py
+test2.py
+win_exp.py
 
 # Systemd service file (local setup only)
 *.service
