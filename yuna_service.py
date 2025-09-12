@@ -2,7 +2,7 @@
 import sys
 import json
 from llama_cpp import Llama
-from flask import Flask, request, Response, stream_with_context, jsonify
+from flask import Flask, request, Response, stream_with_context
 from flask_cors import CORS
 
 # --- Model Configuration ---
@@ -24,7 +24,7 @@ def load_model():
         "model_path": MODEL_PATH,
         "n_threads": 6,
         "f16_kv": True,
-        "verbose": True,
+        "verbose": False,
         "seed": 42,
     }
 
@@ -98,7 +98,7 @@ def generate_stream(messages):
         # --- Advanced Generation Parameters (from new script) ---
         response_stream = llm.create_chat_completion(
             messages=messages,
-            max_tokens=512,
+            max_tokens=1024,
             stop=["<|end|>", "<|user|>"], # Phi-3 specific stop tokens
             stream=True,
             temperature=0.75,
@@ -110,9 +110,9 @@ def generate_stream(messages):
         )
 
         for chunk in response_stream:
-            delta = chunk['choices'][0]['delta'] # type: ignore
+            delta = chunk['choices'][0]['delta']
             if 'content' in delta:
-                yield delta['content'] # type: ignore
+                yield delta['content']
 
     except Exception as e:
         print(f"Generation error: {e}")
@@ -120,7 +120,7 @@ def generate_stream(messages):
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    data = request.get_json(force=True)
+    data = request.get_json()
     user_input = data.get('user_input', '')
     conversation_history = data.get('history', []) # History from client
 
@@ -131,8 +131,8 @@ def chat():
         messages.append({"role": "assistant", "content": turn["ai"]})
     messages.append({"role": "user", "content": user_input})
 
-    return Response(stream_with_context(generate_stream(messages)), mimetype='text/plain') # type: ignore
+    return Response(stream_with_context(generate_stream(messages)), mimetype='text/plain')
 
 if __name__ == '__main__':
     print("Starting Yuna AI Service with Phi-3 model...")
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5000)

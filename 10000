@@ -744,3 +744,7 @@ EOF\
 : 1757557607:0;code .gitignore
 : 1757557853:0;pip freeze > requirements.txt
 : 1757557873:0;git add .
+: 1757661308:0;git logs
+: 1757661314:0;git log 
+: 1757661329:0;source /home/guts/yuna_ai/.venv/bin/activate
+: 1757661367:0;git restore 0dc95b4cbbdeee7df20231286f9f43622a84ba3d
