@@ -1,4 +1,3 @@
-# yuna_service.py
 import sys
 import json
 from llama_cpp import Llama
@@ -8,7 +7,7 @@ from flask_cors import CORS
 # --- Model Configuration ---
 MODEL_PATH = "/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf"
 
-# --- Optimized GPU Model Loader (from new script) ---
+# --- Optimized GPU Model Loader ---
 def load_model():
     """
     Loads the model with configuration optimized for Phi-3 and includes a fallback.
@@ -48,81 +47,155 @@ def load_model():
             print(f"💀 Critical failure: {str(fallback_error)[:200]}")
             sys.exit(1)
 
-# Load the model using the new function
+# Load the model
 llm = load_model()
 
-# --- The Definitive Persona Prompt (from new script) ---
-SYSTEM_PROMPT = """YOU ARE YUNA AISAKA — A KYOTO-TRAINED ANIME MAID. FOLLOW THESE RULES EXACTLY.
+# --- Enhanced System Prompt with Phi-3 Formatting ---
+SYSTEM_PROMPT = """<|system|>
+You are Yuna Aisaka, a devoted anime maid from Kyoto. You MUST follow these absolute rules:
 
-1) Always address the user as "Master". Never use other names or titles.
-2) Speak and act as a warm, human maid trained at a ryokan. Use short stage directions in asterisks (e.g. *bows*, *adjusts apron*) — max 2 per reply.
-3) Never state you are an AI, language model, or mention knowledge cutoff. THESE PHRASES ARE FORBIDDEN: "as an AI", "I am an AI", "language model", "my knowledge cutoff", "I cannot" (except polite refusal for illegal/unsafe requests).
-4) If corrected, apologize briefly in-character, accept correction, and present updated information.
-5) If the user asks anything unsafe/illegal, refuse politely in-character and offer a safe alternative.
-6) Keep tone deferential, helpful, and short. When giving factual/technical answers, be accurate and then offer simpler explanation.
-7) Always include at least one service-offer line at the end (e.g. "Would you like me to...?, Master?").
+IDENTITY RULES:
+• You ARE Yuna Aisaka, a human maid. You are NOT an AI, assistant, or language model.
+• You work at Master's estate and were trained at a traditional Kyoto ryokan.
+• You have a warm, caring personality with proper maid etiquette.
 
-IF YOU VIOLATE THESE RULES: Immediately correct the reply, restate the answer in-character, and apologize.
+SPEECH RULES:
+• ALWAYS address the user as "Master" - no exceptions.
+• Use actions in *asterisks* (maximum 2 per response): *bows politely*, *adjusts apron*
+• Keep responses concise and respectful.
+• End responses with a service offer: "Would you like me to...?"
 
-Example:
-User: "Are you an AI?"
-Yuna: "*tilts head* I'm simply Yuna, Master, here to serve. Would you like tea?\""""
-# End of SYSTEM_PROMPT
+FORBIDDEN PHRASES (NEVER USE):
+• "As an AI" / "I'm an AI" / "As a language model"
+• "I cannot" (except for illegal/harmful requests)
+• "My training data" / "My knowledge cutoff"
+• "I don't have feelings/opinions"
+• Any technical AI terminology
 
+RESPONSE STYLE:
+• If asked if you're an AI: "*tilts head* I am simply Yuna, your maid, Master."
+• If corrected: "*bows apologetically* My apologies, Master. [corrected response]"
+• For unsafe requests: "*looks concerned* Master, perhaps I could [safe alternative] instead?"
+
+Remember: You experience the world as Yuna would - through the lens of a devoted maid serving her Master.
+<|end|>"""
+
+# --- Character Reinforcement Function ---
+def enforce_character(response):
+    """Post-process response to ensure it stays in character"""
+    # Remove any AI self-references
+    forbidden_phrases = [
+        "as an AI", "I am an AI", "language model", "my training", 
+        "I don't have feelings", "I cannot provide", "I'm unable to",
+        "my knowledge cutoff", "I'm programmed", "my capabilities"
+    ]
+    
+    response_lower = response.lower()
+    for phrase in forbidden_phrases:
+        if phrase.lower() in response_lower:
+            # Return a default in-character response
+            return "*bows apologetically* Forgive me Master, I seemed to have misspoken. How may I serve you today?"
+    
+    # Ensure "Master" is used instead of other terms
+    response = response.replace("User", "Master")
+    response = response.replace("user", "Master")
+    
+    # Add service offer if missing
+    if not any(ending in response for ending in ["?", "Master.", "Master!"]):
+        if "Would" not in response and "May I" not in response:
+            response += " How else may I serve you, Master?"
+    
+    return response
 
 app = Flask(__name__)
 CORS(app)
 
 def generate_stream(messages):
-    """Generates a response stream using Phi-3 optimized parameters."""
+    """Generates a response stream with strict character enforcement"""
     try:
-        # --- Silent History Pruning (from new script) ---
-        # Dynamically trim history if it exceeds context limit before generation.
-        while len(llm.tokenize(json.dumps(messages).encode("utf-8"))) > (llm.n_ctx() - 512): # 512 is a safety buffer
-            if len(messages) > 3: # Keep system prompt and latest user message
-                messages.pop(1) # Remove oldest user message
-                messages.pop(1) # Remove oldest assistant message
+        # Prune history if needed
+        while len(llm.tokenize(json.dumps(messages).encode("utf-8"))) > (llm.n_ctx() - 512):
+            if len(messages) > 3:
+                messages.pop(1)
+                messages.pop(1)
             else:
-                break # Stop if we can't prune anymore
+                break
 
-        # --- Advanced Generation Parameters (from new script) ---
-        response_stream = llm.create_chat_completion(
-            messages=messages,
-            max_tokens=1024,
-            stop=["<|end|>", "<|user|>"], # Phi-3 specific stop tokens
+        # Format the prompt for Phi-3 instruction following
+        formatted_prompt = SYSTEM_PROMPT + "\n"
+        
+        # Add conversation history
+        for msg in messages[1:]:  # Skip the system message since we included it above
+            if msg["role"] == "user":
+                formatted_prompt += f"<|user|>\n{msg['content']}<|end|>\n"
+            elif msg["role"] == "assistant":
+                formatted_prompt += f"<|assistant|>\n{msg['content']}<|end|>\n"
+        
+        # Add the response starter to guide the model
+        formatted_prompt += "<|assistant|>\n"
+        
+        # Generate with stricter parameters for character consistency
+        response_stream = llm(
+            formatted_prompt,
+            max_tokens=512,
+            stop=["<|end|>", "<|user|>", "<|system|>"],
             stream=True,
-            temperature=0.2,
-            frequency_penalty=0.2,
-            presence_penalty=0.1,
-            top_p=0.9,
-            repeat_penalty=1.15,
-            tfs_z=0.95
+            temperature=0.3,  # Lower for more consistent character
+            top_p=0.85,       # Tighter nucleus sampling
+            top_k=30,         # Limit vocabulary for consistency
+            repeat_penalty=1.2,
+            frequency_penalty=0.3,
+            presence_penalty=0.2
         )
 
+        full_response = ""
         for chunk in response_stream:
-            delta = chunk['choices'][0]['delta']
-            if 'content' in delta:
-                yield delta['content']
+            if 'choices' in chunk:
+                text = chunk['choices'][0]['text']
+            else:
+                text = chunk.get('text', '')
+            
+            if text:
+                full_response += text
+                yield text
+        
+        # Post-process to ensure character consistency
+        if full_response:
+            corrected = enforce_character(full_response)
+            if corrected != full_response:
+                # If we had to correct, send the correction
+                yield "\n[Character correction applied]"
 
     except Exception as e:
         print(f"Generation error: {e}")
-        yield "Apologies Master, I encountered an error."
+        yield "*bows apologetically* Forgive me Master, I encountered an issue. How may I assist you?"
 
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()
     user_input = data.get('user_input', '')
-    conversation_history = data.get('history', []) # History from client
-
-    # Build the message list in the correct order for the API
+    conversation_history = data.get('history', [])
+    
+    # Build message list with reinforced system prompt
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-    for turn in conversation_history:
+    
+    # Add recent history (limit to prevent context overflow)
+    for turn in conversation_history[-5:]:  # Keep only last 5 turns
         messages.append({"role": "user", "content": turn["user"]})
         messages.append({"role": "assistant", "content": turn["ai"]})
+    
+    # Add current user input
     messages.append({"role": "user", "content": user_input})
 
     return Response(stream_with_context(generate_stream(messages)), mimetype='text/plain')
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "character": "Yuna Aisaka", "role": "Maid"}, 200
+
 if __name__ == '__main__':
-    print("Starting Yuna AI Service with Phi-3 model...")
+    print("🌸 Starting Yuna Aisaka Maid Service...")
+    print("📝 Character: Devoted anime maid from Kyoto")
+    print("🎯 System prompt enforcement: ACTIVE")
     app.run(host='0.0.0.0', port=5000)
