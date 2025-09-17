@@ -13,7 +13,7 @@ def load_model():
     Loads the model with configuration optimized for Phi-3 and includes a fallback.
     """
     optimal_config = {
-        "n_gpu_layers": 16,
+        "n_gpu_layers": 0,
         "n_ctx": 2048,
         "n_batch": 256,
         "low_vram": True,
@@ -23,7 +23,7 @@ def load_model():
         "model_path": MODEL_PATH,
         "n_threads": 6,
         "f16_kv": True,
-        "verbose": False,
+        "verbose": True,
         "seed": 42,
     }
 
