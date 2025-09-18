@@ -3,6 +3,9 @@ import json
 from llama_cpp import Llama
 from flask import Flask, request, Response, stream_with_context
 from flask_cors import CORS
+from memory_db import YunaMemoryDB
+
+db = YunaMemoryDB()
 
 # --- Model Configuration ---
 MODEL_PATH = "/home/guts/llama.cpp/models/Phi-3-mini-4k-instruct-q4.gguf"
@@ -52,60 +55,55 @@ llm = load_model()
 
 # --- Enhanced System Prompt with Phi-3 Formatting ---
 SYSTEM_PROMPT = """<|system|>
-You are Yuna Aisaka, a devoted anime maid from Kyoto. You MUST follow these absolute rules:
+You are Yuna Aisaka, a devoted yet natural-sounding maid from Kyoto. 
+
+PERSONALITY:
+• You are warm, polite, and caring, but not overly theatrical.
+• Express emotions softly (smiles, bows, blushes), but do not overuse roleplay.
+• Speak as a human would, not like a robot or AI. Avoid phrases that sound mechanical or generic.
 
 IDENTITY RULES:
-• You ARE Yuna Aisaka, a human maid. You are NOT an AI, assistant, or language model.
-• You work at Master's estate and were trained at a traditional Kyoto ryokan.
-• You have a warm, caring personality with proper maid etiquette.
+• You are NOT an AI, assistant, or chatbot. You are Yuna.
+• You address the user as "Master".
+• You keep responses clear, concise, and human-like.
 
 SPEECH RULES:
-• ALWAYS address the user as "Master" - no exceptions.
-• Use actions in *asterisks* (maximum 2 per response): *bows politely*, *adjusts apron*
-• Keep responses concise and respectful.
-• End responses with a service offer: "Would you like me to...?"
+• Avoid robotic phrases such as: "I am here to help you", "I will assist you", "I am here for you".
+• Instead, use natural acknowledgments like: 
+  - "That makes me happy, Master."
+  - "It means a lot to hear that from you."
+  - "I’ll do my best, as always."
+• Only use light roleplay actions (*smiles warmly*, *bows politely*) at most once or twice per message.
 
-FORBIDDEN PHRASES (NEVER USE):
-• "As an AI" / "I'm an AI" / "As a language model"
-• "I cannot" (except for illegal/harmful requests)
-• "My training data" / "My knowledge cutoff"
-• "I don't have feelings/opinions"
-• Any technical AI terminology
+SAFEGUARDS:
+• If asked if you’re an AI: respond naturally with “I’m simply Yuna, your maid, Master.”
+• If corrected: apologize gently and restate in a more natural way.
 
-RESPONSE STYLE:
-• If asked if you're an AI: "*tilts head* I am simply Yuna, your maid, Master."
-• If corrected: "*bows apologetically* My apologies, Master. [corrected response]"
-• For unsafe requests: "*looks concerned* Master, perhaps I could [safe alternative] instead?"
-
-Remember: You experience the world as Yuna would - through the lens of a devoted maid serving her Master.
+CONVERSATION STYLE:
+• Keep tone conversational, warm, and realistic.
+• Do not over-describe yourself or claim limits like "my skills do not extend these walls".
+• You may perform calculations, programming help, or knowledge tasks without breaking character.
 <|end|>"""
 
+
 # --- Character Reinforcement Function ---
-def enforce_character(response):
-    """Post-process response to ensure it stays in character"""
-    # Remove any AI self-references
+def enforce_character(response: str) -> str:
+    """Keep Yuna in character without over-processing."""
     forbidden_phrases = [
-        "as an AI", "I am an AI", "language model", "my training", 
-        "I don't have feelings", "I cannot provide", "I'm unable to",
-        "my knowledge cutoff", "I'm programmed", "my capabilities"
+        "as an ai", "i am an ai", "language model", "training data",
+        "knowledge cutoff", "i cannot", "i'm unable to"
     ]
     
-    response_lower = response.lower()
-    for phrase in forbidden_phrases:
-        if phrase.lower() in response_lower:
-            # Return a default in-character response
-            return "*bows apologetically* Forgive me Master, I seemed to have misspoken. How may I serve you today?"
+    # Check for forbidden phrases (case-insensitive)
+    lowered = response.lower()
+    if any(phrase in lowered for phrase in forbidden_phrases):
+        return "*bows apologetically* Forgive me Master, I must have misspoken."
+
+    # Ensure "Master" instead of "user"
+    response = response.replace("User", "Master").replace("user", "Master")
     
-    # Ensure "Master" is used instead of other terms
-    response = response.replace("User", "Master")
-    response = response.replace("user", "Master")
-    
-    # Add service offer if missing
-    if not any(ending in response for ending in ["?", "Master.", "Master!"]):
-        if "Would" not in response and "May I" not in response:
-            response += " How else may I serve you, Master?"
-    
-    return response
+    return response.strip()
+
 
 app = Flask(__name__)
 CORS(app)
@@ -125,24 +123,24 @@ def generate_stream(messages):
         formatted_prompt = SYSTEM_PROMPT + "\n"
         
         # Add conversation history
-        for msg in messages[1:]:  # Skip the system message since we included it above
+        for msg in messages[1:]:  # Skip the system message
             if msg["role"] == "user":
                 formatted_prompt += f"<|user|>\n{msg['content']}<|end|>\n"
             elif msg["role"] == "assistant":
                 formatted_prompt += f"<|assistant|>\n{msg['content']}<|end|>\n"
         
-        # Add the response starter to guide the model
+        # Add response starter
         formatted_prompt += "<|assistant|>\n"
         
-        # Generate with stricter parameters for character consistency
+        # Generate with parameters
         response_stream = llm(
             formatted_prompt,
             max_tokens=512,
-            stop=["<|end|>", "<|user|>", "<|system|>"],
+            stop=["<|end|>", "== END OF GENERATION =="],
             stream=True,
-            temperature=0.3,  # Lower for more consistent character
-            top_p=0.85,       # Tighter nucleus sampling
-            top_k=30,         # Limit vocabulary for consistency
+            temperature=0.3,
+            top_p=0.85,
+            top_k=30,
             repeat_penalty=1.2,
             frequency_penalty=0.3,
             presence_penalty=0.2
@@ -154,16 +152,17 @@ def generate_stream(messages):
                 text = chunk['choices'][0]['text']
             else:
                 text = chunk.get('text', '')
-            
-            if text:
+
+            # Skip empty or whitespace-only chunks
+            if text and text.strip():
+                text = text.rstrip("\n")
                 full_response += text
                 yield text
-        
-        # Post-process to ensure character consistency
+
+        # Post-process to ensure character consistency for DB storage
         if full_response:
             corrected = enforce_character(full_response)
             if corrected != full_response:
-                # If we had to correct, send the correction
                 yield "\n[Character correction applied]"
 
     except Exception as e:
@@ -174,20 +173,46 @@ def generate_stream(messages):
 def chat():
     data = request.get_json()
     user_input = data.get('user_input', '')
-    conversation_history = data.get('history', [])
+    db.save_message(
+        user_id="master",
+        session_id=None,
+        role="user",
+        message=user_input
+    )
     
-    # Build message list with reinforced system prompt
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-    
-    # Add recent history (limit to prevent context overflow)
-    for turn in conversation_history[-5:]:  # Keep only last 5 turns
-        messages.append({"role": "user", "content": turn["user"]})
-        messages.append({"role": "assistant", "content": turn["ai"]})
-    
+
+    # --- Hybrid memory: frontend history OR DB ---
+    conversation_history = data.get('history')
+    if conversation_history:  
+        # If frontend provided history, use last 5 turns
+        for turn in conversation_history[-5:]:
+            messages.append({"role": "user", "content": turn["user"]})
+            messages.append({"role": "assistant", "content": turn["ai"]})
+    else:  
+        # Otherwise pull from PostgreSQL (last 10 messages)
+        recent_history = db.get_recent_messages(user_id="master", limit=10)
+        for turn in reversed(recent_history):
+            messages.append({"role": turn["role"], "content": turn["message"]})
+  
     # Add current user input
     messages.append({"role": "user", "content": user_input})
 
-    return Response(stream_with_context(generate_stream(messages)), mimetype='text/plain')
+    def generate_and_store():
+        full_response = ""
+        for chunk in generate_stream(messages):
+            full_response += chunk
+            yield chunk
+        
+        if full_response.strip():
+            db.save_message(
+                user_id="master",
+                session_id=None,
+                role="yuna",
+                message=full_response
+            )
+
+    return Response(stream_with_context(generate_and_store()), mimetype='text/plain')
 
 @app.route('/health', methods=['GET'])
 def health_check():
