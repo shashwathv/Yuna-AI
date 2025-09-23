@@ -3,7 +3,7 @@ import json
 from llama_cpp import Llama
 from flask import Flask, request, Response, stream_with_context
 from flask_cors import CORS
-from memory.memory_db import YunaMemoryDB
+from memory_db import YunaMemoryDB
 
 db = YunaMemoryDB()
 
